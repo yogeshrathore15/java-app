@@ -34,14 +34,16 @@ steps:
 # ...
 # add these as the last steps
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: $(Build.ArtifactStagingDirectory)
+    artifactName: MyBuildOutputs
+    
 - task: CopyFiles@2
   inputs:
     SourceFolder: ''
     Contents: '**/target/*.jar'
     TargetFolder: '${Build.ArtifactStagingDirectory}'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: $(Build.ArtifactStagingDirectory)
-    artifactName: MyBuildOutputs
+
 
