@@ -34,6 +34,12 @@ steps:
 # ...
 # add these as the last steps
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '${Build.Repository.LocalPath}'
+    Contents: '**'
+    TargetFolder: '${Build.ArtifactStagingDirectory}'
+
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:
