@@ -3,17 +3,6 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-# at the top of your YAML file 
-# set some variables that you'll need when you deploy
-variables:
-  # the name of the service connection that you created above
-  serviceConnectionToAzure: service-connection
-  # the name of your web app here is the same one you used above
-  # when you created the web app using the Azure CLI
-  appName: my-app
-  
-# ...
-
 trigger:
 - master
 
@@ -31,22 +20,6 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-# ...
-# add these as the last steps
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    SourceFolder: ''
-    Contents: '**/target/*.jar'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
-
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: ''
-    Contents: '**/target/*.jar'
-    TargetFolder: '${Build.ArtifactStagingDirectory}'
 
 
 
