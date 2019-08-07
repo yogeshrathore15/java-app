@@ -25,7 +25,7 @@ steps:
   inputs:
     SourceFolder: 'target'
     Contents: '**'
-    TargetFolder: '${Build.ArtifactStagingDirectory}/target/'
+    TargetFolder: '/home/vsts/work/1/a/target/'
 
 - task: PublishBuildArtifacts@1
   inputs:
