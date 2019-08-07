@@ -23,7 +23,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/target'
+    SourceFolder: 'target'
     Contents: '**'
     TargetFolder: '${Build.ArtifactStagingDirectory}/target/'
 
