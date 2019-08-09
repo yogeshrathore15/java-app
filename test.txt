@@ -1,0 +1,17 @@
+hi i am a txt file while true;do
+        echo "1. Python 2"
+        echo "2. Python 3"
+        echo -n "Option : " ; read python_opt
+        if [ "$python_opt" == 1 ]; then
+            openstack_python_path=$python_path
+            python2_version="True";python3_version="False"
+            break
+        elif [ "$python_opt" == 2 ]; then
+            openstack_python_path=$python3_path
+            python3_version="True";python2_version="False"
+            break
+        else
+            echo -e "\nPlease select valid option (1/2) :"
+            continue
+        fi
+    done
